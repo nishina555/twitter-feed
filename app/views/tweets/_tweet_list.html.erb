@@ -1,0 +1,7 @@
+<% if @tweets.present? %>
+  <% @tweets.each do |tweet| %>
+    <div class="list">
+      <%= tweet.contents %>
+    </div>
+  <% end %>
+<% end %>
