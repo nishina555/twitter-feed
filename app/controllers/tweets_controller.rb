@@ -1,11 +1,8 @@
 class TweetsController < ApplicationController
   def search
     client = Twitter::REST::Client.new do |config|
-      # applicationの設定
-      config.consumer_key         = "fMTD5gs4Kr3l95WZtyZmaGkHo"
-      config.consumer_secret      = "eXSnPp6rTKzVdVP57lOdP4vnrwOjTFRZq4xq3AtHfG6OY9JbQU"
-      config.access_token         = "131071117-SND9LRMOqPdAjWonMvmOjPs2JG7CIRhQMzJvQsnC"
-      config.access_token_secret  = "o8kMSUW0nja4mH97hKtFc6LNGeurNA8p5i8nTc2MKbZ7Z"
+      config.consumer_key         = Rails.application.secrets.twitter_consumer_key
+      config.consumer_secret      = Rails.application.secrets.twitter_consumer_secret
     end
     @tweets = []
     query = "ruby"
